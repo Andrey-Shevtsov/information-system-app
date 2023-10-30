@@ -1,5 +1,8 @@
 package live.shevtsovdev.app.controller;
 
+import live.shevtsovdev.app.data.models.Product;
+import live.shevtsovdev.app.data.repositories.ProductRepository;
+import live.shevtsovdev.app.service.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,11 +15,11 @@ import java.util.List;
 @RequestMapping("api/v1/product")
 public class ProductController {
 
-    private final ProductRepository productRepository;
+    private final ProductService productService;
 
     @GetMapping("/getAll")
     public List<Product> getAll() {
-        return productRepository.getAll();
+        return productService.getAll();
     }
 
 }
